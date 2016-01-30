@@ -1,4 +1,4 @@
-libdrm (2.4.66-2~bpo8+1) UNRELEASED; urgency=medium
+libdrm (2.4.66-2~bpo8+1) jessie-backports; urgency=medium
 
   * Rebuild for jessie-backports.
 
