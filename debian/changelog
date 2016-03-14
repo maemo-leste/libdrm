@@ -1,3 +1,11 @@
+libdrm (2.4.67-1) unstable; urgency=medium
+
+  * New upstream release.
+  * patches: Refreshed.
+  * libdrm-amdgpu1.symbols: Updated.
+
+ -- Timo Aaltonen <tjaalton@debian.org>  Tue, 16 Feb 2016 12:14:16 +0200
+
 libdrm (2.4.66-2~bpo8+1) jessie-backports; urgency=medium
 
   * Rebuild for jessie-backports.
