@@ -1,3 +1,9 @@
+libdrm (2.4.89-1~bpo9+1) stretch-backports; urgency=medium
+
+  * Rebuild for stretch-backports.
+
+ -- Andreas Boll <andreas.boll.dev@gmail.com>  Thu, 01 Feb 2018 09:56:39 +0100
+
 libdrm (2.4.89-1) unstable; urgency=medium
 
   * New upstream release.
