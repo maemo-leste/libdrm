@@ -49,6 +49,7 @@
 #include "xf86atomic.h"
 
 #include "util_double_list.h"
+#include "util_math.h"
 
 #include "freedreno_drmif.h"
 #include "freedreno_ringbuffer.h"
@@ -156,6 +157,7 @@ struct fd_bo_funcs {
 	int (*cpu_prep)(struct fd_bo *bo, struct fd_pipe *pipe, uint32_t op);
 	void (*cpu_fini)(struct fd_bo *bo);
 	int (*madvise)(struct fd_bo *bo, int willneed);
+	uint64_t (*iova)(struct fd_bo *bo);
 	void (*destroy)(struct fd_bo *bo);
 };
 
@@ -173,7 +175,6 @@ struct fd_bo {
 	time_t free_time;        /* time when added to bucket-list */
 };
 
-#define ALIGN(v,a) (((v) + (a) - 1) & ~((a) - 1))
 #define ARRAY_SIZE(arr) (sizeof(arr) / sizeof((arr)[0]))
 
 #define enable_debug 0  /* TODO make dynamic */
@@ -200,7 +201,7 @@ offset_bytes(void *end, void *start)
 	return ((char *)end) - ((char *)start);
 }
 
-#ifdef HAVE_VALGRIND
+#if HAVE_VALGRIND
 #  include <memcheck.h>
 
 /*
