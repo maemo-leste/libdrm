@@ -92,16 +92,6 @@ Description: Testing tools from the libdrm project
  .
  This package contains a variety of tools for testing from the libdrm project.
 
-Package: libdrm2-udeb
-Package-Type: udeb
-Section: debian-installer
-Architecture: linux-any kfreebsd-any hurd-any
-Depends:
- ${shlibs:Depends},
- ${misc:Depends},
-Description: Userspace interface to kernel DRM services -- runtime
- This is a udeb, or a microdeb, for the debian-installer.
-
 Package: libdrm-intel1
 Architecture: amd64 i386 kfreebsd-amd64 kfreebsd-i386 hurd-i386 x32
 Depends:
